@@ -13,15 +13,12 @@ def first_fit_memory_allocation(blocks, files):
                 block_sizes[j] = -1  # Mark block as used
                 break
 
-    print("\nFile No\tFile Size\tBlock No\tBlock Size\tFragment")
+    print(f"\n{'File No':<8}{'File Size':<12}{'Block No':<10}{'Block Size':<12}{'Fragment'}")
     for i in range(n_files):
-        print(f"{i + 1}\t{files[i]}\t\t", end="")
         if allocation[i] != -1:
-            block_no = allocation[i] + 1
-            block_size = blocks[allocation[i]]
-            print(f"{block_no}\t\t{block_size}\t\t{fragment[i]}")
+            print(f"{i + 1:<8}{files[i]:<12}{allocation[i] + 1:<10}{blocks[allocation[i]]:<12}{fragment[i]}")
         else:
-            print("-\t\t-\t\tNot Allocated")
+            print(f"{i + 1:<8}{files[i]:<12}{'-':<10}{'-':<12}Not Allocated")
 
 
 # Input Section
